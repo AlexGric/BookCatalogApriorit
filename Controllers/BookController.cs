@@ -18,17 +18,17 @@ namespace BookCatalogApriorit.Controllers
         }
 
         [HttpGet]
-        public  IActionResult Get()
+        public IEnumerable<Book> Get()
         {
             IEnumerable<Book> books =  _bookService.GetBooks();
-            return Ok(books);
+            return books;
         }
 
         [HttpGet("{id}")]
-        public  IActionResult Get(int id)
+        public Book Get(int id)
         {
             Book book =  _bookService.GetBookById(id);
-            return Ok(book);
+            return book;
         }
 
         [HttpPost]
